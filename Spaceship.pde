@@ -3,6 +3,7 @@ class Spaceship extends Floater
   //your code here\
   
   public Spaceship() {
+    myColor = 255;
     myCenterX = 150;
     myCenterY = 150;
     myDirectionX = 0;
@@ -45,4 +46,6 @@ class Spaceship extends Floater
     return (double)myPointDirection;
   }
 }
-public void move(){}
+public void show(){
+
+}
