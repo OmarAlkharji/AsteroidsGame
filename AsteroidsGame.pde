@@ -1,5 +1,5 @@
 Star[] nightSky = new Star[200];
-Asteroid[] m = new Asteroid[20];
+Asteroid[] m = new Asteroid[30];
 Spaceship z = new Spaceship();
 public void setup() 
 {
