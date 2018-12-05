@@ -8,8 +8,8 @@ class Asteroid extends Floater {
     myDirectionY = (int)(Math.random()*3);
     myPointDirection = 0;
     corners = 8;
-    int [] xS = {-8, -15, -8, 0, 8, 15, 8, 0};
-    int [] yS = {-12, 5, 18, 20, 12, -7, -12, -20, };
+    int [] xS = {-4, -15, -12, 0, 10, 15, 12, 5};
+    int [] yS = {-12, 5, 18, 20, 12, -10, -12, -20, };
     xCorners = xS;
     yCorners = yS;
   }
@@ -44,7 +44,7 @@ class Asteroid extends Floater {
     return (double)myPointDirection;
   }
   public void move() {
-    rotSpeed = ((int)Math.random()*4)-6;
+    rotSpeed = ((int)Math.random()*1)-3;
     turn(rotSpeed);
     super.move();
     
