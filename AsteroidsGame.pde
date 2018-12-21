@@ -23,25 +23,37 @@ public void draw()
 {
   //your code here
   background(0);
+  
+ 
   for (int i = 0; i < nightSky.length; i++) {
     nightSky[i].show();
   }
+  
   for (int nI = 0; nI < meteor.size(); nI++) {
     meteor.get(nI).show();
     meteor.get(nI).move();
     float d = dist(z.getX(), z.getY(), meteor.get(nI).getX(), meteor.get(nI).getY());
     if (d < 27)
-      meteor.remove(nI);
+     meteor.remove(nI);
   }
-  for (int i = 0; i < b.size(); i++) {
-    b.get(i).show();
-    b.get(i).move();
-    {if (b.get(i).getX() == 500 || b.get(i).getY() == 500){
-      b.remove(i);
+  
+  
+  
+  for(int i = 0; i < b.size(); i++) {
+        b.get(i).show();
+        b.get(i).move(); 
+        
+        if(b.get(i).getY() > 500) {    
+            b.remove(i);   
+        } else if (b.get(i).getY() < 0){     
+            b.remove(i);     
+        } else if(b.get(i).getX() > 500) {     
+            b.remove(i); 
+        } else if (b.get(i).getX() <0) {     
+            b.remove(i);
+        }
     }
-    }
-  }
-  z.show();
+    z.show();
   z.move();
 }
 

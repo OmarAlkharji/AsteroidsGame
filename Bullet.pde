@@ -1,5 +1,14 @@
 class Bullet extends Floater
 {
+  public Bullet(Spaceship z) {
+    myCenterX = z.getX();
+    myCenterY = z.getY();
+    myPointDirection = z.getPointDirection();
+    double dRadians = myPointDirection*(Math.PI/180);
+    myDirectionX =5 * Math.cos(dRadians) + z.getDirectionX();
+    myDirectionY =5 * Math.sin(dRadians) + z.getDirectionY();
+  }
+  
   public void setX(int x) {
     myCenterX = x;
   }
@@ -9,12 +18,8 @@ class Bullet extends Floater
   public void setY(int y) {
     myCenterY = y;
   }
-  public int getY() {
-    return (int)myCenterY;
-  }
-  public void setDirectionX(double x) {
-    myDirectionX = x;
-  }   
+  public int getY() {return (int)myCenterY;}
+  public void setDirectionX(double x) {myDirectionX = x;}   
   public double getDirectionX() {
     return (double)myDirectionX;
   }  
@@ -30,17 +35,15 @@ class Bullet extends Floater
   public double getPointDirection() {
     return (double)myPointDirection;
   }
-   public Bullet(Spaceship z) {
-    double dRadians = myPointDirection*(Math.PI/180);
-    myCenterX = z.getX();
-    myCenterY = z.getY();
-    myPointDirection = z.getPointDirection();
-    myDirectionX =5 * Math.cos(dRadians) + z.getDirectionX();
-    myDirectionY =5 * Math.sin(dRadians) + z.getDirectionY();
-  }
+   
   public void show(){
     noStroke();
     fill(255,0,0);
-    rect((float)myCenterX,(float)myCenterY,20,4);
-  }
+    ellipse((float)myCenterX,(float)myCenterY,8,8);
+  }  public void move ()   //move the floater in the current direction of travel
+  {      
+    //change the x and y coordinates by myDirectionX and myDirectionY       
+    myCenterX += myDirectionX;    
+    myCenterY += myDirectionY;     
+  }   
 }
